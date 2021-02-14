@@ -4,7 +4,7 @@ import requests
 import json
 from datetime import date
 
-app = Flask(__name__)
+application = Flask(__name__)
 
 api_key = open('NewsApi_key.txt', 'r')
 key_content = api_key.read()
@@ -19,14 +19,14 @@ def min_counter():
     return counter
 
 
-@app.route("/counter")
+@application.route("/counter")
 def count():
     min_counter()
     print(counter)
     return "counter gezählt"
 
 
-@app.route("/news", methods=['POST', 'GET'])
+@application.route("/news", methods=['POST', 'GET'])
 def hello():
     # Für get requests
     #args = request.args
@@ -36,7 +36,7 @@ def hello():
     return render_template("start.html", counter=counter)
 
 
-@app.route('/show_news', methods=['POST'])
+@application.route('/show_news', methods=['POST'])
 def get_news():
 
     # Für POST requests
