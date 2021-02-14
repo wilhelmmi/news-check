@@ -1,0 +1,92 @@
+{% extends "layouts/main.html" %}
+
+
+
+{% block content %}
+
+<form id="form" method="POST" action="/show_news">
+  <!--Wenn Horizontal, dann erst komplettes div class="row" und dann form-gropus in Col stecken -->
+  <label for="checkForm">Für welches Land möchtest du News erhalten?</label>
+  <div id="checkForm" class="form-check  row ">
+
+    <div class="col-sm-12">
+      <input class="form-check-input" type="radio" name="country" id="Radios1" value="de">
+      <label class="form-check-label" for="Radios1">
+        Deutschland
+      </label>
+    </div>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" type="radio" name="country" id="Radios2" value="gb">
+    <label class="form-check-label" for="Radios2">
+      Großbritanien
+    </label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" type="radio" name="country" id="Radios3" value="us">
+    <label class="form-check-label" for="Radios3">
+      USA
+    </label>
+  </div>
+  <br />
+  <input type="radio" class="btn-check" name="category" id="option1" autocomplete="off" value="" checked>
+  <label class="btn btn-outline-primary" for="option1">alles</label>
+
+  <input type="radio" class="btn-check" name="category" id="option2" autocomplete="off" value="business">
+  <label class="btn btn-outline-primary" for="option2">business</label>
+
+  <input type="radio" class="btn-check" name="category" id="option3" autocomplete="off" value="health">
+  <label class="btn btn-outline-primary" for="option3">health</label>
+
+  <input type="radio" class="btn-check" name="category" id="option4" autocomplete="off" value="sports">
+  <label class="btn btn-outline-primary" for="option4">sport</label>
+
+  <input type="radio" class="btn-check" name="category" id="option5" autocomplete="off" value="technology">
+  <label class="btn btn-outline-primary" for="option5">technik</label>
+
+  <input type="radio" class="btn-check" name="category" id="option6" autocomplete="off" value="science">
+  <label class="btn btn-outline-primary" for="option6">science</label>
+
+  <input type="radio" class="btn-check" name="category" id="option7" autocomplete="off" value="entertainment">
+  <label class="btn btn-outline-primary" for="option7">entertainment</label>
+  <br />
+  <br />
+  <div class="form-group row ">
+    <div class="col-sm-12">
+      <label for="keywordInput">Nach welchem Sichtwort möchtest du suchen?</label>
+      <input type="text" name="keyword" class="form-control" id="keywordInput"
+        placeholder="Optional z.B. GME, Sport oder Merkel">
+      <small id="keywordInput" class="form-text text-muted">Für das Beste aus allen Bereichen Feld leer lassen</small>
+    </div>
+  </div>
+  <br />
+  <button id="submitBtn" type="submit" class="btn btn-primary">Bestätigen</button>
+
+</form>
+<hr>
+<h2>Verbleibende Anfragen: {{counter}} /100</h2>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!--     <script type=text/javascript>         $(function() {
+        $('#submitBt').on('click', function(e) {
+          e.preventDefault()
+          $.getJSON('/counter',
+              function(data) {
+            //do nothing
+          });
+          return false;
+        });
+      }); </script>  -->
+
+<script type=text/javascript>
+    $(document).ready(function() {
+         $(':input[type="submit"]').prop('disabled', true);
+         $('#Radios1, #Radios2, #Radios3').change(function() {
+            if($(this).is(":checked")) {
+               $(':input[type="submit"]').prop('disabled', false);
+            }
+         });
+     });
+    </script>
+{% endblock %}

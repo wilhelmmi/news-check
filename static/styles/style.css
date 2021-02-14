@@ -1,0 +1,28 @@
+/* navbar */
+.container.main {
+  padding-top: 1.5rem;
+}
+
+.span-nav {
+  margin-left: -1.3rem;
+  font-size: small;
+}
+.navbar-default {
+  background-color: white;
+  border-bottom-style: solid;
+  border-bottom-width: thin;
+  border-bottom-color: lightgray;
+}
+
+/* .navbar-header{
+    background-color: red;
+} */
+.navbar-brand {
+  font-family: "Copperplate", fantasy;
+  color: #007bff;
+  font-size: 2.5rem;
+}
+
+.card {
+  display: inline-block;
+}
