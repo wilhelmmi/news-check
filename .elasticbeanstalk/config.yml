@@ -1,0 +1,5 @@
+branch-defaults:
+  main:
+    environment: News-env-1
+global:
+  profile: eb-cli

@@ -6,9 +6,10 @@ from datetime import date
 
 application = Flask(__name__)
 
-api_key = open('NewsApi_key.txt', 'r')
-key_content = api_key.read()
-api_key.close()
+#api_key = open('NewsApi_key.txt', 'r')
+#key_content = api_key.read()
+#api_key.close()
+key_content="1c989446b85f4ab1aa000ab935fa9287"
 today = date.today()
 counter = 100
 
@@ -18,14 +19,7 @@ def min_counter():
     counter = counter - 1
     return counter
 
-
-@application.route("/counter")
-def count():
-    min_counter()
-    print(counter)
-    return "counter gezählt"
-
-
+@application.route("/", methods=['POST', 'GET'])
 @application.route("/news", methods=['POST', 'GET'])
 def hello():
     # Für get requests
@@ -35,6 +29,11 @@ def hello():
 
     return render_template("start.html", counter=counter)
 
+@application.route("/counter")
+def count():
+    min_counter()
+    print(counter)
+    return "counter gezählt"
 
 @application.route('/show_news', methods=['POST'])
 def get_news():
