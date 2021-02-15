@@ -9,7 +9,7 @@ application = Flask(__name__)
 #api_key = open('NewsApi_key.txt', 'r')
 #key_content = api_key.read()
 #api_key.close()
-key_content="1c989446b85f4ab1aa000ab935fa9287"
+key_content="Insert your own API Key here"
 today = date.today()
 counter = 100
 
