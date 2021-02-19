@@ -3,6 +3,12 @@
 
 
 {% block content %}
+{% if counter == 0  %}
+<div class="d-flex justify-content-center "> 
+    <h2>Leider sind heute keine weiteren Anfragen mehr übrig...Sorry!</h2>
+</div>
+
+{% else %}
 
 <form id="form" method="POST" action="/show_news">
   <!--Wenn Horizontal, dann erst komplettes div class="row" und dann form-gropus in Col stecken -->
@@ -89,4 +95,5 @@
          });
      });
     </script>
+    {% endif %}
 {% endblock %}
